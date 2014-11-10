@@ -16,3 +16,17 @@ if has("autocmd")
 endif
 " highlight string
 set hls
+" show line num, disable it because paste will paste line number too
+" set nu
+"
+set autoindent
+# avoid code copy & paste issue
+set paste
+# remeber last edit position
+if has("autocmd")
+   autocmd BufRead *.txt set tw=78
+   autocmd BufReadPost *
+      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+      \   exe "normal g'\"" |
+      \ endif
+endif
