@@ -20,9 +20,9 @@ set hls
 " set nu
 "
 set autoindent
-# avoid code copy & paste issue
+" avoid code copy & paste issue
 set paste
-# remeber last edit position
+" remeber last edit position
 if has("autocmd")
    autocmd BufRead *.txt set tw=78
    autocmd BufReadPost *
