@@ -1,5 +1,7 @@
 " always show status bar
 set laststatus=2
+" don't know why the previous setting not show column number, here we need this
+set statusline+=%F\ %l\:%c
 " tabstop
 set tabstop=4
 " unify indent
