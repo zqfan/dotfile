@@ -1,7 +1,8 @@
 " always show status bar
 set laststatus=2
-" don't know why the previous setting not show column number, here we need this
-set statusline+=%F\ %l\:%c
+" laststatus works fine without explicitly set statusline on ubuntu 12.04, but not ubuntu 14.04
+" will prints full file path, file type, total line number, current position, buffer state
+set statusline=%F\ %{&ff}\ %LL\ %p%%\ [%l:%v]\ %m%r%h%w
 " tabstop
 set tabstop=4
 " unify indent
