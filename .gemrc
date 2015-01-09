@@ -1,0 +1,2 @@
+# put this in your /etc/gemrc if you need to use sudo
+gem: --no-document
