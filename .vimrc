@@ -1,35 +1,55 @@
-" always show status bar
-set laststatus=2
-" laststatus works fine without explicitly set statusline on ubuntu 12.04, but not ubuntu 14.04
-" will prints full file path, file type, total line number, current position, buffer state
-set statusline=%F\ %{&ff}\ %LL\ %p%%\ [%l:%v]\ %m%r%h%w
-" tabstop
-set tabstop=4
-" unify indent
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-" end line whitespace alert
-highlight WhitespaceEOL ctermbg=red guibg=red
-match WhitespaceEOL /\s\+$/
-" end line $
-"set list
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-" highlight string
-set hls
-" show line num, disable it because paste will paste line number too
-" set nu
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+" set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" :PluginInstall
+"Plugin 'https://github.com/davidhalter/jedi-vim'
+Plugin 'fatih/vim-go'
+Plugin 'python-mode/python-mode'
+" cd ~/.vim/bundle/YouCompleteMe/ && ./install.sh
+Plugin 'Valloric/YouCompleteMe'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 "
-set autoindent
-" avoid code copy & paste issue
-set paste
-" remeber last edit position
-if has("autocmd")
-   autocmd BufRead *.txt set tw=78
-   autocmd BufReadPost *
-      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \   exe "normal g'\"" |
-      \ endif
-endif
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"" color theme
+set t_Co=256
+colorscheme molokai
+let g:molokai_original = 1
+let g:rehash256 = 1
